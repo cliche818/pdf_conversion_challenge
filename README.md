@@ -88,3 +88,11 @@ any languages or frameworks you are comfortable with.
 * Virus checking or document format validation (i.e. you can assume we will
   send you valid pdfs)
 
+# Jeff Documentations
+
+## PDF to text spike
+1) https://github.com/yob/pdf-reader
+2) https://github.com/benbalter/pdftotext
+
+2 requires installing poppler on my Mac, 1 just works out of the box.  Both returns a string representing the PDF.
+1 is also maintained, unlike 2 (the wrapper is not maintained anymore).  I will go with 1.
