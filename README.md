@@ -96,3 +96,11 @@ any languages or frameworks you are comfortable with.
 
 2 requires installing poppler on my Mac, 1 just works out of the box.  Both returns a string representing the PDF.
 1 is also maintained, unlike 2 (the wrapper is not maintained anymore).  I will go with 1.
+
+## /upload
+Does not check if there are duplicates.  
+It will create a new record in the invoices table and overwrite the file that is already there.
+For processing_status, there could be more (i.e error, initialized), but for now there is only "success".
+pdf_string_converter.rb is responsible for converting pdf to string.
+invoice_extractor.rb is responsible for getting the raw values out of the invoice string.
+
