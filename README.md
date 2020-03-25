@@ -130,6 +130,7 @@ have controller tests in upload_controller_test.rb
 
 ## Things to do
 - figure out how to mock (could switch to RSpec or use the Mocha gem)
+- handle if an invoice does not have a value to be extracted (code will be in InvoiceExtractor)
 
 Future features (depends entirely on future requirements):
 - PDF info extraction can be a background job (i.e use Sidekiq)
