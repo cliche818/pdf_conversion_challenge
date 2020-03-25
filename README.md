@@ -89,6 +89,20 @@ any languages or frameworks you are comfortable with.
   send you valid pdfs)
 
 # Jeff Documentations
+## setup
+used ruby version 2.6.3 to develop
+run bundle install
+for unit/integration tests: rails test
+to run the server: rails s (will be available at localhost:3000 by default)
+ 
+To try run (in the project root directory): 
+curl -F 'file=@"invoices/HubdocInvoice1.pdf"' -F 'email=user@domain.com' localhost:3000/upload
+
+expected behaviour:
+- HubdocInvoice1.pdf shows up in /file_storage/HubdocInvoice1.pdf
+- a record in the sqlite table (can be seen in rails c -> Invoice.last)
+
+To see the newly created record can also do localhost:3000/document/1 (assuming first record created)
 
 ## PDF to text spike
 1) https://github.com/yob/pdf-reader
@@ -103,4 +117,19 @@ It will create a new record in the invoices table and overwrite the file that is
 For processing_status, there could be more (i.e error, initialized), but for now there is only "success".
 pdf_string_converter.rb is responsible for converting pdf to string.
 invoice_extractor.rb is responsible for getting the raw values out of the invoice string.
+
+Did not have time to get the mocking library working or would have included tests that mocked the following: 
+-FileUtils.mv
+-PdfStringConverter.to_string
+-InvoiceExtracter.to_invoice 
+
+## /document/:id
+have controller tests in upload_controller_test.rb
+
+## Things to do
+- figure out how to mock (could switch to RSpec or use the Mocha gem)
+
+Future features:
+- PDF info extraction can be a background job (i.e use Sidekiq)
+ 
 
