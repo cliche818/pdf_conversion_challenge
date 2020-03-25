@@ -10,6 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_03_25_191338) do
+
+  create_table "invoices", force: :cascade do |t|
+    t.string "uploaded_by"
+    t.datetime "uploaded_at"
+    t.integer "filesize"
+    t.string "vendor_name"
+    t.datetime "invoice_date"
+    t.float "amount_due"
+    t.string "currency"
+    t.float "tax_amount"
+    t.string "processing_status"
+    t.string "file_path"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end

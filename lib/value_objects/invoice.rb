@@ -5,7 +5,7 @@ module ValueObjects
       {
         vendor_name: vendor,
         invoice_date: Date.parse(invoice_date),
-        invoice_amount: invoice_amount[1..-1].to_f,
+        amount_due: invoice_amount[1..-1].to_f,
         currency: currency,
         tax_amount: tax[1..-1].to_f
       }
