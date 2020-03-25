@@ -90,10 +90,12 @@ any languages or frameworks you are comfortable with.
 
 # Jeff Documentations
 ## setup
-used ruby version 2.6.3 to develop
-run bundle install
-for unit/integration tests: rails test
-to run the server: rails s (will be available at localhost:3000 by default)
+used ruby version 2.6.3 to develop, uses sqlite for relational database
+prerequisites: requires rbenv/rvm for installing ruby and gem install bundler
+
+1) run bundle install
+2) for unit/integration tests: rails test
+3) to run the server: rails s (will be available at localhost:3000 by default)
  
 To try run (in the project root directory): 
 curl -F 'file=@"invoices/HubdocInvoice1.pdf"' -F 'email=user@domain.com' localhost:3000/upload
@@ -129,7 +131,8 @@ have controller tests in upload_controller_test.rb
 ## Things to do
 - figure out how to mock (could switch to RSpec or use the Mocha gem)
 
-Future features:
+Future features (depends entirely on future requirements):
 - PDF info extraction can be a background job (i.e use Sidekiq)
+
  
 
