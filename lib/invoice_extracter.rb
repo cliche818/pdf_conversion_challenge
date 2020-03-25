@@ -10,7 +10,7 @@ class InvoiceExtracter
     set_invoice_date!(invoice, invoice_lines)
     set_vendor!(invoice, invoice_lines)
     set_tax!(invoice, invoice_lines)
-    # set_currency!(invoice, invoice_lines)
+    set_currency!(invoice, invoice_lines)
 
     invoice
   end
@@ -36,8 +36,11 @@ class InvoiceExtracter
       invoice.tax = tax_amount
     end
 
-    # def set_currency!(invoice, invoice_lines)
-    #
-    # end
+    def set_currency!(invoice, invoice_lines)
+      total_due_index = invoice_lines.index { |line| line.include?("Total Due") }
+      currency_index = total_due_index + 1
+      currency = invoice_lines[currency_index].split(" ")[-1]
+      invoice.currency = currency
+    end
   end
 end

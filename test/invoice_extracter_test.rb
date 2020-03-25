@@ -8,7 +8,7 @@ class InvoiceExtracterTest < ActiveSupport::TestCase
     assert_equal "UK Company", invoice.vendor
     assert_equal "February 22, 2019", invoice.invoice_date
     assert_equal "£0.00", invoice.tax
-    # assert_equal "GBP", invoice.currency
+    assert_equal "GBP", invoice.currency
 
   end
 end
