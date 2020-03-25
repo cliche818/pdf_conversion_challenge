@@ -7,6 +7,7 @@ class PdfStringConverter
 
       reader.pages.each do |page|
         string += page.text
+        string += "\n"
       end
     end
 

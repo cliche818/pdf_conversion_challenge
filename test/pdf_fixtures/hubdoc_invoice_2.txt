@@ -62,7 +62,8 @@ of your payment:
 
                                                             $0.00
                                Total Due
-                                                            USDThank you for your business. Your next invoice date is April 12, 2019.
+                                                            USD
+Thank you for your business. Your next invoice date is April 12, 2019.
       This message was sent to alan+free@hubdoc.com because you have a Hubdoc account.
                                   View your invoice on Hubdoc
 
