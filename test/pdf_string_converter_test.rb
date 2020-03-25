@@ -9,4 +9,11 @@ class PdfStringConverterTest < ActiveSupport::TestCase
 
     assert_equal expected_pdf_text, pdf_text
   end
+
+  test "if file does not exist, return an empty string" do
+    file_path = "does not exist path"
+    pdf_text = PdfStringConverter.to_string(file_path)
+
+    assert_equal "", pdf_text
+  end
 end
