@@ -22,7 +22,10 @@ class InvoiceExtracter
     private
 
     def set_invoice_date!(invoice, invoice_lines)
-      invoice_date = invoice_lines[0].split("  ")[-1]
+      invoice_date_year = invoice_lines[0].split(" ")[-1]
+      invoice_date_day = invoice_lines[0].split(" ")[-2]
+      invoice_date_month = invoice_lines[0].split(" ")[-3]
+      invoice_date = "#{invoice_date_month} #{invoice_date_day} #{invoice_date_year}"
       invoice.invoice_date = invoice_date
     end
 
