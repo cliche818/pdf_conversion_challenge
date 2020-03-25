@@ -33,4 +33,23 @@ class UploadController < ApplicationController
       render json: {}, status: 400
     end
   end
+
+  def show
+    invoice = Invoice.find_by(id: params[:id])
+    if invoice.present?
+      render json: {
+        uploadedBy: invoice.uploaded_by,
+        uploadTimestamp: invoice.uploaded_at,
+        filesize: invoice.filesize,
+        vendorName: invoice.vendor_name,
+        invoiceDate: invoice.invoice_date,
+        amountDue: invoice.amount_due,
+        currency: invoice.currency,
+        taxAmount: invoice.tax_amount,
+        processingStatus: invoice.processing_status,
+      }
+    else
+      render json: {}, status: 400
+    end
+  end
 end
