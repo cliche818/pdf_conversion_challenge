@@ -22,4 +22,15 @@ class InvoiceExtracterTest < ActiveSupport::TestCase
     assert_equal "USD", invoice.currency
     assert_equal "$40.00", invoice.invoice_amount
   end
+
+  test "turns text into invoice value objects for hubdoc_invoice_3.txt" do
+    invoice_text = File.read(Rails.root.to_s + '/test/pdf_fixtures/hubdoc_invoice_3.txt')
+    invoice = InvoiceExtracter.to_invoice(invoice_text)
+
+    assert_equal "canadian", invoice.vendor
+    assert_equal "March 13, 2019", invoice.invoice_date
+    assert_equal "$1.63", invoice.tax
+    assert_equal "CAD", invoice.currency
+    assert_equal "$14.13", invoice.invoice_amount
+  end
 end

@@ -36,6 +36,11 @@ class InvoiceExtracter
 
     def set_tax!(invoice, invoice_lines)
       tax_line_index = invoice_lines.index { |line| line.include?("Tax") }
+
+      if tax_line_index.nil?
+        tax_line_index = invoice_lines.index { |line| line.include?("GST 13%") }
+      end
+
       tax_amount = invoice_lines[tax_line_index].split(" ")[-1]
       invoice.tax = tax_amount
     end
